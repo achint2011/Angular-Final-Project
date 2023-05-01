@@ -1,0 +1,8 @@
+.round-image {
+  width: 130px;
+  border-radius: 20%;
+}
+.invalid{
+  margin-bottom: 20px;
+  color: red;
+}

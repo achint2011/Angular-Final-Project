@@ -1,0 +1,24 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 80px;
+}
+h1 {
+  font-size: 3rem;
+  color: #5e5e5e;
+}
+p {
+  font-size: 1.2rem;
+  color: #777777;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+a {
+  color: #337ab7;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+}

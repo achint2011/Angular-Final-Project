@@ -1,0 +1,8 @@
+.center1{
+position: absolute;
+left: 35%;
+top: 20%;
+}
+input[type="text"], textarea {
+  width: 500px;
+}

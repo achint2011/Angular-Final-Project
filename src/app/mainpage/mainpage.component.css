@@ -1,0 +1,22 @@
+.commentsection{
+  height: 4rem;
+  width: 50rem;
+  background-color: transparent;
+  position: relative;
+  top: 20px;
+}
+.bt{
+  margin-right: 8px;
+}
+.post{
+  margin-bottom: 16px;
+}
+.content {
+  flex-basis: 100%;
+  flex-grow : 0;
+  flex-shrink :1;
+  height: 100%
+}
+.lower-text{
+  text-align: center;
+}

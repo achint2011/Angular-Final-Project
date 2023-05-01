@@ -1,0 +1,26 @@
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <a routerLink=""><img src="assets/images/logo.png" alt="" class="round-image"></a>
+        <a routerLink="" routerLinkActive="active" class="text-gray-300 hover:text-white">
+          Chat Book
+        </a>
+      </div>
+      <div class="flex items-center justify-center flex-1">
+        <div class="w-full max-w-xs">
+          <label for="search" class="sr-only">Search</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fas fa-search text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <button class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium" routerLink="/logout" routerLinkActive="active">Logout</button>
+        <img src="{{ imgpath }}" alt="userimage" class="round-image">
+      </div>
+    </div>
+  </div>
+</nav>

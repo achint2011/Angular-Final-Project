@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div>
+
+</div>
+<div class="max-w-4xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+
+  <!-- Add post input and button -->
+  <div class="flex items-center mb-8">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
+    (click)="onAddNewPost()">Add New Post</button>
+  </div>
+  <!-- Search bar -->
+  <form #queryForm="ngForm" (ngSubmit)="onSubmit(queryForm)">
+  <div class="flex items-center mb-8">
+    <label for="search" class="sr-only">Search posts</label>
+      <input
+        type="text"
+        name="search"
+        placeholder="Search.."
+        [(ngModel)]="queryData"
+        class="border border-gray-300 rounded-lg py-2 px-4 w-full mr-4 form-control"
+      />
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">Search</button>
+  </div>
+  </form>
+  <!-- Posts list -->
+  <div class="grid gap-8 post" *ngFor="let post of this.apiService.posts | paginate
+  : {
+      id: 'foo',
+      itemsPerPage: 6,
+      currentPage: currPage,
+      totalItems: this.apiService.length
+    }; let i = index">
+    <div class="border border-gray-300 rounded-lg p-6">
+      <h2 class="text-xl font-bold mb-4">{{ post.title }}</h2>
+      <p class="text-gray-500 mb-4">{{ post.body }}</p>
+      <div class="flex flex-wrap">
+        <span class="bg-gray-200 text-gray-600 rounded-full text-sm font-semibold py-1 px-2 mr-2 mb-2">{{ post.tags[0] }}</span>
+        <span class="bg-gray-200 text-gray-600 rounded-full text-sm font-semibold py-1 px-2 mr-2 mb-2">{{ post.tags[1] }}</span>
+        <span class="bg-gray-200 text-gray-600 rounded-full text-sm font-semibold py-1 px-2 mr-2 mb-2">{{ post.tags[2] }}</span>
+      </div>
+
+      <!-- Delete Post  -->
+      <button class="bg-red-300 hover:bg-red-700 text-white font-bold py-1 px-3 rounded-lg mt-4 bt"
+      (click)="onDelete(i)">Delete</button>
+
+      <button class="bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold py-1 px-3 rounded-lg mt-4"
+      (click)="onShowComment(i)">Show comments</button>
+      <div class="mt-4">
+        <!-- Comments section (hidden by default) -->
+        <div>
+          <div class="commentsection bg-gray-200 text-gray-600 text-sm font-semibold py-1 px-2 mr-2 mb-2 text-xl text-center"
+          *ngIf="showbox[i]">
+          <span>
+            {{ comments }}
+          </span>
+          </div>
+          <div *ngIf="hidecomment[i]">
+            <button class="bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold py-1 px-3 rounded-lg mt-4" (click)="hideBox(i)">Hide comments</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+<span class="content lower-text">
+  <pagination-controls
+    class="text-control mt-4"
+    id="foo"
+    previousLabel="Prev"
+    nextLabel="Next"
+    [responsive]="true"
+    (pageChange)="currPage = $event"
+  ></pagination-controls>
+  <strong> </strong
+></span>
+</div>
+<!-- <div>
+  <li *ngFor="let post of posts">
+    {{ post.title }}
+  </li>
+</div> -->
